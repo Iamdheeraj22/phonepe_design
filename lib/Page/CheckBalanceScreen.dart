@@ -69,6 +69,7 @@ class _CheckBalanceScreenState extends State<CheckBalanceScreen> {
             const SizedBox(
               height: 10,
             ),
+            //bank accounts
             Container(
               width: width(context),
               margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -90,6 +91,7 @@ class _CheckBalanceScreenState extends State<CheckBalanceScreen> {
                     height: 10,
                   ),
                   ListTile(
+                    onTap: () {},
                     contentPadding: EdgeInsets.zero,
                     leading: Container(
                       decoration: BoxDecoration(
@@ -111,27 +113,29 @@ class _CheckBalanceScreenState extends State<CheckBalanceScreen> {
                     height: 10,
                   ),
                   ListTile(
+                    onTap: () {},
                     contentPadding: EdgeInsets.zero,
                     leading: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.grey)),
                       child: Image.asset(
-                        "assets/bob.png",
+                        "assets/icici.jpg",
                         height: 50,
                         width: 50,
                       ),
                     ),
-                    title: Text(
-                      "Bank Of Baroda - 1234",
+                    title: const Text(
+                      "ICICI Bank - 1234",
                       style: TextStyle(fontSize: 13),
                     ),
-                    trailing: Icon(Icons.arrow_forward_ios),
+                    trailing: const Icon(Icons.arrow_forward_ios),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   ListTile(
+                      onTap: () {},
                       contentPadding: EdgeInsets.zero,
                       leading: Container(
                         decoration: BoxDecoration(
@@ -148,6 +152,41 @@ class _CheckBalanceScreenState extends State<CheckBalanceScreen> {
                         style: TextStyle(fontSize: 13),
                       ),
                       trailing: Icon(Icons.arrow_forward_ios))
+                ],
+              ),
+            ),
+            Container(
+              width: width(context),
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
+              decoration: BoxDecoration(
+                  color: white, borderRadius: BorderRadius.circular(10)),
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Wallet",
+                    style: TextStyle(
+                        color: black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ListTile(
+                      onTap: () {},
+                      contentPadding: EdgeInsets.zero,
+                      leading: Image.asset(
+                        "assets/phonepe.png",
+                        height: 45,
+                        width: 50,
+                      ),
+                      title: const Text(
+                        "Phonepe Wallet",
+                        style: TextStyle(fontSize: 13),
+                      ),
+                      trailing: const Icon(Icons.arrow_forward_ios))
                 ],
               ),
             )

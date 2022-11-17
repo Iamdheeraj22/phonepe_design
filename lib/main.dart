@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Page/CheckBalanceScreen.dart';
+import 'Page/ProfileScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(primaryColor: Color.fromARGB(255, 0, 26, 112)),
-      home: CheckBalanceScreen(),
+      home: ProfileScreen(),
     );
   }
 }
