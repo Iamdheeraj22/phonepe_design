@@ -306,61 +306,74 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontSize: 14),
                     ),
                     heightBox(5),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "assets/icons/biometrics.png",
+                                height: 25,
+                                width: 25,
+                              ),
+                              widthBox(15),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "Screen Lock",
+                                    style: TextStyle(fontSize: 13),
+                                  ),
+                                  heightBox(5),
+                                  const Text("Biometric & Screen Lock",
+                                      style:
+                                          TextStyle(fontSize: 12, color: grey))
+                                ],
+                              ),
+                            ],
+                          ),
+                          Switch(
+                            activeColor: primaryBlueColor,
+                            value: true,
+                            onChanged: (v) {},
+                          )
+                        ],
+                      ),
+                    ),
 
                     //@Change Password
-                    ListTile(
-                        onTap: () {},
-                        contentPadding: EdgeInsets.zero,
-                        leading: Image.asset(
-                          "assets/icons/biometrics.png",
-                          height: 35,
-                          width: 50,
-                        ),
-                        title: const Text(
-                          "Screen Lock",
-                          style: TextStyle(fontSize: 13),
-                        ),
-                        subtitle: const Text(
-                          "Biometric & Screen Lock",
-                          style: TextStyle(fontSize: 12, color: grey),
-                        ),
-                        trailing: Switch(
-                          activeColor: primaryBlueColor,
-                          value: true,
-                          onChanged: (v) {},
-                        )),
-                    //@Change Password
-                    ListTile(
-                        onTap: () {},
-                        contentPadding: EdgeInsets.zero,
-                        leading: Image.asset(
-                          "assets/icons/key.png",
-                          height: 35,
-                          width: 50,
-                        ),
-                        title: const Text(
-                          "Change Password",
-                          style: TextStyle(fontSize: 13),
-                        ),
-                        subtitle: const Text(
-                          "Reset your app password",
-                          style: TextStyle(fontSize: 12, color: grey),
-                        ),
-                        trailing: const Icon(Icons.arrow_forward_ios)),
+                    PaymentItem(
+                      title: "Change Password",
+                      subTitle: "Reset your app password",
+                      imgUrl: "assets/icons/key.png",
+                    ),
+
                     //@Permissions
-                    ListTile(
-                        onTap: () {},
-                        contentPadding: EdgeInsets.zero,
-                        leading: Image.asset(
-                          "assets/icons/block-user.png",
-                          height: 35,
-                          width: 50,
-                        ),
-                        title: const Text(
-                          "Blocked Contacts",
-                          style: TextStyle(fontSize: 13),
-                        ),
-                        trailing: const Icon(Icons.arrow_forward_ios)),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "assets/icons/block-user.png",
+                                height: 25,
+                                width: 25,
+                              ),
+                              widthBox(15),
+                              const Text(
+                                "Blocked Contacts",
+                                style: TextStyle(fontSize: 13),
+                              ),
+                            ],
+                          ),
+                          const Icon(Icons.arrow_forward_ios)
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -369,26 +382,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Container(
                 margin: const EdgeInsets.only(top: 10),
                 width: width(context),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
                 decoration: BoxDecoration(
                     color: white, borderRadius: BorderRadius.circular(10)),
-                child: ListTile(
-                    onTap: () {},
-                    contentPadding: EdgeInsets.zero,
-                    leading: Image.asset(
-                      "assets/icons/information.png",
-                      height: 35,
-                      width: 50,
-                    ),
-                    title: const Text(
-                      "About PhonePe",
-                      style: TextStyle(fontSize: 13),
-                    ),
-                    subtitle: const Text(
-                      "Privacy policy, Terms & About PhonePe",
-                      style: TextStyle(fontSize: 12, color: grey),
-                    ),
-                    trailing: const Icon(Icons.arrow_forward_ios)),
+                child: PaymentItem(
+                  title: "About PhonePe",
+                  subTitle: "Privacy policy, Terms & About PhonePe",
+                  imgUrl: "assets/icons/information.png",
+                ),
               ),
 
               //Logout
@@ -402,7 +404,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onTap: () {},
                   contentPadding: EdgeInsets.zero,
                   leading: Image.asset("assets/icons/log-out.png",
-                      height: 35, width: 50, color: Colors.red),
+                      height: 25, width: 25, color: Colors.red),
                   title: const Text(
                     "LOGOUT",
                     style: TextStyle(fontSize: 15, color: Colors.red),
