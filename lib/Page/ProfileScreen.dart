@@ -271,7 +271,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     PaymentItem(
                       title: "Bill Notifications",
                       subTitle: "Receive alerts when bill is generated",
-                      imgUrl: "assets/icons/translation.png",
+                      imgUrl: "assets/icons/invoice.png",
                     ),
                     PaymentItem(
                       title: "Permissions",
@@ -455,13 +455,13 @@ class UpiCard extends StatelessWidget {
                 ),
                 heightBox(12),
                 const Text(
-                  "Bank of Ba.. - 5332",
+                  "Bank of Ba.. - 1234",
                   style: TextStyle(
                       color: white, fontWeight: FontWeight.w600, fontSize: 13),
                 ),
                 heightBox(5),
                 const Text(
-                  "XXXX 5332",
+                  "XXXX 1234",
                   style: TextStyle(
                       color: white, fontWeight: FontWeight.w400, fontSize: 12),
                 ),
