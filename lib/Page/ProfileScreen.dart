@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:phonepe_design/Page/AccountDetailsScreen.dart';
 import 'package:phonepe_design/Utils/Common.dart';
 import 'package:phonepe_design/Utils/CustomUi.dart';
 
@@ -128,7 +130,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             padding: EdgeInsets.zero,
                             itemCount: 3,
                             itemBuilder: (itemBuilder, index) {
-                              return UpiCard();
+                              return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (builder) =>
+                                                AccountDetailsScreen()));
+                                  },
+                                  child: UpiCard());
                             }),
                       ),
                       Container(

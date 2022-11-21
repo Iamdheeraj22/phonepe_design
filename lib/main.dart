@@ -4,6 +4,16 @@ import 'Page/CheckBalanceScreen.dart';
 import 'Page/ProfileScreen.dart';
 
 void main() {
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return Center(
+      child: Text(
+        "Error\n${details.exception}",
+        style: const TextStyle(
+            color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 20),
+        textAlign: TextAlign.center,
+      ),
+    );
+  };
   runApp(const MyApp());
 }
 
@@ -21,3 +31,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//
