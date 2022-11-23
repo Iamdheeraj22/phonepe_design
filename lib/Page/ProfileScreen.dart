@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:phonepe_design/Page/AccountDetailsScreen.dart';
 import 'package:phonepe_design/Utils/Common.dart';
 import 'package:phonepe_design/Utils/CustomUi.dart';
@@ -14,6 +15,14 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final LocalAuthentication _localAuthentication = LocalAuthentication();
+  String _message = "Not Authorized";
+  @override
+  void initState() {
+    checkingForBioMetrics();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,19 +181,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                             ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 15),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 15, vertical: 8),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  color: primaryBlueColor),
-                              child: const Text(
-                                "Top-UP",
-                                style: TextStyle(
-                                    color: white,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13),
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 15),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 8),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: primaryBlueColor),
+                                child: const Text(
+                                  "Top-UP",
+                                  style: TextStyle(
+                                      color: white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 13),
+                                ),
                               ),
                             )
                           ],
@@ -427,6 +439,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
     );
+  }
+
+  Future<bool> checkingForBioMetrics() async {
+    bool canCheckBiometrics = await _localAuthentication.canCheckBiometrics;
+    print(canCheckBiometrics);
+    if (canCheckBiometrics) {
+      _authenticateMe();
+    }
+    return canCheckBiometrics;
+  }
+
+  Future<void> _authenticateMe() async {
+    bool authenticated = false;
+    try {
+      authenticated = await _localAuthentication.authenticate(
+        localizedReason: "Authenticate for Testing", // message for dialog
+        // useErrorDialogs: true, // show error in dialog
+        // stickyAuth: true, // native process
+      );
+      setState(() {
+        _message = authenticated ? "Authorized" : "Not Authorized";
+      });
+    } catch (e) {
+      print(e);
+    }
+    if (!mounted) return;
   }
 }
 

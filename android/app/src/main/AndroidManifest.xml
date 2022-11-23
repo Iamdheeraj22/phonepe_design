@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.phonepe_design">
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.USE_BIOMETRIC"/>
    <application
         android:label="phonepe_design"
         android:name="${applicationName}"

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:phonepe_design/Page/AddNewUpiPage.dart';
 import 'package:phonepe_design/Utils/CustomUi.dart';
 
 import '../Utils/Colors.dart';
 import '../Utils/Common.dart';
+
+//
 
 class AccountDetailsScreen extends StatefulWidget {
   AccountDetailsScreen({Key? key}) : super(key: key);
@@ -231,14 +235,20 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
                         itemCount: 5,
                         padding: EdgeInsets.zero,
                         itemBuilder: (con, i) {
-                          return Column(
-                            children: [
-                              UpiId(),
-                              Container(
-                                height: 0.5,
-                                color: grey,
-                              )
-                            ],
+                          return InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (builder) => AddNewUpiPage()));
+                            },
+                            child: Column(
+                              children: [
+                                UpiId(),
+                                Container(
+                                  height: 0.5,
+                                  color: grey,
+                                )
+                              ],
+                            ),
                           );
                         })
                   ],
