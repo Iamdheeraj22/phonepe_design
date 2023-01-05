@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phonepe_design/Page/Home/HomePage.dart';
 
 import 'Page/CheckBalanceScreen.dart';
 import 'Page/ProfileScreen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(primaryColor: Color.fromARGB(255, 0, 26, 112)),
-      home: ProfileScreen(),
+      home: HomePage(),
     );
   }
 }
