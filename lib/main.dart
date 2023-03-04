@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phonepe_design/Page/Home/HomePage.dart';
-
-import 'Page/CheckBalanceScreen.dart';
-import 'Page/ProfileScreen.dart';
+import 'package:phonepe_design/Utils/size_config.dart';
 
 void main() {
   ErrorWidget.builder = (FlutterErrorDetails details) {
@@ -10,7 +8,7 @@ void main() {
       child: Text(
         "Error\n${details.exception}",
         style: const TextStyle(
-            color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 20),
+            color: Colors.red, fontWeight: FontWeight.bold, fontSize: 20),
         textAlign: TextAlign.center,
       ),
     );
@@ -20,16 +18,20 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(primaryColor: Color.fromARGB(255, 0, 26, 112)),
-      home: HomePage(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(primaryColor: Color.fromARGB(255, 0, 26, 112)),
+        home: HomePage(),
+        builder: (context, child) {
+          SizeConfig.initialize(
+              context: context,
+              draftWidth: MediaQuery.of(context).size.width,
+              draftHeight: MediaQuery.of(context).size.height);
+          return child!;
+        });
   }
 }
 //
