@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:phonepe_design/Page/AccountDetailsScreen.dart';
+import 'package:phonepe_design/Screens/AccountDetailsScreen.dart';
 import 'package:phonepe_design/Utils/Common.dart';
 import 'package:phonepe_design/Utils/CustomUi.dart';
 

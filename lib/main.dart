@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phonepe_design/Page/Home/HomePage.dart';
+import 'package:phonepe_design/Screens/Home/HomePage.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
 
 void main() {

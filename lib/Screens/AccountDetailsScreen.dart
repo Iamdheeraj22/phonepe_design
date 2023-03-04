@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
-import 'package:phonepe_design/Page/AddNewUpiPage.dart';
+import 'package:phonepe_design/Screens/AddNewUpiPage.dart';
 import 'package:phonepe_design/Utils/CustomUi.dart';
 
 import '../Utils/Colors.dart';
