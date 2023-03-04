@@ -37,6 +37,7 @@ dependencies:
   get: ^4.6.5
   local_auth: ^2.1.2
   flutter_screenutil: ^5.6.0
+  provider: 
 
 dev_dependencies:
   flutter_test:

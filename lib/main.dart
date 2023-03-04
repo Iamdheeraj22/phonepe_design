@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:phonepe_design/Screens/Home/HomePage.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
+import 'package:phonepe_design/common/commmon_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   ErrorWidget.builder = (FlutterErrorDetails details) {
@@ -20,18 +22,24 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(primaryColor: Color.fromARGB(255, 0, 26, 112)),
-        home: HomePage(),
-        builder: (context, child) {
-          SizeConfig.initialize(
-              context: context,
-              draftWidth: MediaQuery.of(context).size.width,
-              draftHeight: MediaQuery.of(context).size.height);
-          return child!;
-        });
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider <CommonProviderModel>(
+            create: ((_) => CommonProviderModel())),
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(primaryColor: Color.fromARGB(255, 0, 26, 112)),
+          home: HomePage(),
+          builder: (context, child) {
+            SizeConfig.initialize(
+                context: context,
+                draftWidth: MediaQuery.of(context).size.width,
+                draftHeight: MediaQuery.of(context).size.height);
+            return child!;
+          }),
+    );
   }
 }
-//
+// 
