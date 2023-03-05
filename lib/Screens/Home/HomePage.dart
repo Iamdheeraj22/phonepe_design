@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:phonepe_design/Screens/Home/model/bottom_model.dart';
 import 'package:phonepe_design/Screens/Home/widgets/navigation_destinition_item.dart';
+import 'package:phonepe_design/Screens/Home/widgets/update_app_widget.dart';
+import 'package:phonepe_design/Screens/ProfileScreen.dart';
 
 import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
@@ -25,35 +27,41 @@ class _HomePageState extends State<HomePage> {
             leading: Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: 15.w),
-              child: Stack(
-                alignment: Alignment.bottomRight,
-                children: [
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        "assets/my1.jpg",
-                        height: 35.h,
-                        fit: BoxFit.cover,
-                        width: 35.h,
-                      )),
-                  Container(
-                    height: 13.h,
-                    width: 13.h,
-                    padding: EdgeInsets.all(0.3),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.r),
-                        border: Border.all(color: white)),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.r),
-                      child: Image.asset(
-                        "assets/flg.png",
-                        height: 10.h,
-                        fit: BoxFit.cover,
-                        width: 10.h,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => ProfileScreen()));
+                },
+                child: Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          "assets/my1.jpg",
+                          height: 35.h,
+                          fit: BoxFit.cover,
+                          width: 35.h,
+                        )),
+                    Container(
+                      height: 13.h,
+                      width: 13.h,
+                      padding: EdgeInsets.all(0.3),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.r),
+                          border: Border.all(color: white)),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.r),
+                        child: Image.asset(
+                          "assets/flg.png",
+                          height: 10.h,
+                          fit: BoxFit.cover,
+                          width: 10.h,
+                        ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
             backgroundColor: primaryBlueColor,
@@ -114,7 +122,20 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-          body: Container(),
+          body: Container(
+              height: double.infinity,
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    UpdateWidget()
+                  ],
+                ),
+              )),
           bottomNavigationBar: NavigationBar(
               backgroundColor: white,
               elevation: 1.0,

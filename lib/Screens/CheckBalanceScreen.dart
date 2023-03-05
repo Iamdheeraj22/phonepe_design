@@ -10,6 +10,7 @@ class CheckBalanceScreen extends StatefulWidget {
 }
 
 class _CheckBalanceScreenState extends State<CheckBalanceScreen> {
+  /// A list of images that are being used in the app.
   final List<String> _imagesList = [
     "assets/ad2.jpg",
     "assets/ad3.png",
@@ -19,7 +20,11 @@ class _CheckBalanceScreenState extends State<CheckBalanceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
         backgroundColor: primaryBlueColor,
         elevation: 0.0,
         title: const Text("Check Balance"),

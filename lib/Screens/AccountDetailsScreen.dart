@@ -20,8 +20,11 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading:
-              IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back)),
           backgroundColor: primaryBlueColor,
           elevation: 0.0,
           title: const Text("Account Details"),
