@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phonepe_design/Screens/Home/model/bottom_model.dart';
 import 'package:phonepe_design/Screens/Home/widgets/navigation_destinition_item.dart';
+import 'package:phonepe_design/Screens/Home/widgets/transfer_money_widget.dart';
 import 'package:phonepe_design/Screens/Home/widgets/update_app_widget.dart';
 import 'package:phonepe_design/Screens/ProfileScreen.dart';
 
@@ -18,6 +19,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late CommonProviderModel providerModel;
+  final List<String> _imagesList = [
+    "assets/ad2.jpg",
+    "assets/ad3.png",
+    "assets/ad4.jpg"
+  ];
   @override
   Widget build(BuildContext context) {
     providerModel = Provider.of<CommonProviderModel>(context, listen: true);
@@ -30,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               child: InkWell(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => ProfileScreen()));
+                      MaterialPageRoute(builder: (_) => const ProfileScreen()));
                 },
                 child: Stack(
                   alignment: Alignment.bottomRight,
@@ -46,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       height: 13.h,
                       width: 13.h,
-                      padding: EdgeInsets.all(0.3),
+                      padding: const EdgeInsets.all(0.3),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5.r),
                           border: Border.all(color: white)),
@@ -132,7 +138,33 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 10.h,
                     ),
-                    UpdateWidget()
+                    const UpdateWidget(),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    SizedBox(
+                      height: 120.h,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: _imagesList.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              margin: EdgeInsets.symmetric(horizontal: 8.w),
+                              decoration: const BoxDecoration(),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  _imagesList[index].toString(),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            );
+                          }),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    TransferMoneyWidget()
                   ],
                 ),
               )),
