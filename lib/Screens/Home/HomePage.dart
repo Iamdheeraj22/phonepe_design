@@ -4,6 +4,7 @@ import 'package:phonepe_design/Screens/Home/widgets/navigation_destinition_item.
 import 'package:phonepe_design/Screens/Home/widgets/transfer_money_widget.dart';
 import 'package:phonepe_design/Screens/Home/widgets/update_app_widget.dart';
 import 'package:phonepe_design/Screens/ProfileScreen.dart';
+import 'package:phonepe_design/Screens/notifications/notifications_screen.dart';
 
 import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
@@ -105,10 +106,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  margin: EdgeInsets.only(right: 5.w),
+              Container(
+                margin: EdgeInsets.only(right: 5.w),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NotificationsScreen()));
+                  },
                   child: Icon(
                     Icons.notifications,
                     size: 25.h,
@@ -164,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 10.h,
                     ),
-                    TransferMoneyWidget()
+                    const TransferMoneyWidget()
                   ],
                 ),
               )),

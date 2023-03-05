@@ -3,6 +3,10 @@ import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
 import 'package:phonepe_design/common/strings.dart';
 
+/// It's a stateless widget that returns a card with a container that has a column with a row with an
+/// image and an expanded column with two text widgets and a sized box, and a row with a spacer, an
+/// inkwell with a container with a text widget and a sized box, and an inkwell with a container with a
+/// text widget.
 class UpdateWidget extends StatelessWidget {
   const UpdateWidget({Key? key}) : super(key: key);
 

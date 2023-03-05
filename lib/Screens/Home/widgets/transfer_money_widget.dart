@@ -45,14 +45,14 @@ class _TransferMoneyWidgetState extends State<TransferMoneyWidget> {
                       iconData: Icons.person,
                       title: Strings.toSelfaccount,
                       onPressed: () {
-                        log(Strings.toSelfaccount);
+                        log(Strings.toNumber);
                       },
                     ),
                     TransferItemWidget(
                       iconData: Icons.home,
-                      title: Strings.toSelfaccount,
+                      title: Strings.toBankUPI,
                       onPressed: () {
-                        log(Strings.toSelfaccount);
+                        log(Strings.toBankUPI);
                       },
                     ),
                     TransferItemWidget(
@@ -64,7 +64,7 @@ class _TransferMoneyWidgetState extends State<TransferMoneyWidget> {
                     ),
                     TransferItemWidget(
                       iconData: Icons.home_work,
-                      title: Strings.toSelfaccount,
+                      title: Strings.checkBankBalance,
                       onPressed: () {
                         log(Strings.toSelfaccount);
                       },

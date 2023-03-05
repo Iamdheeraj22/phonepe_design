@@ -9,4 +9,9 @@ class Strings {
   static const String toBankUPI = 'To Bank/\nUPI ID';
   static const String toSelfaccount = 'To Self\nAccount';
   static const String checkBankBalance = 'Check\nBank Balance';
+
+  //Temp strings of notifications
+  static const String title =
+      '100% safe, instant & at no extra cost - money transfers on Phonepe.';
+  static const String subTitle = 'Send money to any Bank a/c';
 }
