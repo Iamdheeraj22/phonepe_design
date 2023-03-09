@@ -5,7 +5,7 @@ import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
 
 class NotificationsScreen extends StatefulWidget {
-  NotificationsScreen({Key? key}) : super(key: key);
+  const NotificationsScreen({Key? key}) : super(key: key);
 
   @override
   State<NotificationsScreen> createState() => _NotificationsScreenState();
@@ -19,9 +19,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         elevation: 0.0,
         backgroundColor: primaryBlueColor,
         leading: BackButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        title: Text('Notifications'),
+        title: const Text('Notifications'),
         actions: [
           Container(
             height: 30.h,

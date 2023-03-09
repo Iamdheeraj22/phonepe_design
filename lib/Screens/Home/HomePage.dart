@@ -5,6 +5,7 @@ import 'package:phonepe_design/Screens/Home/widgets/transfer_money_widget.dart';
 import 'package:phonepe_design/Screens/Home/widgets/update_app_widget.dart';
 import 'package:phonepe_design/Screens/ProfileScreen.dart';
 import 'package:phonepe_design/Screens/notifications/notifications_screen.dart';
+import 'package:phonepe_design/Screens/scan_pay/scanpay_screen.dart';
 
 import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
@@ -96,6 +97,10 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: [
               InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => ScanPayScreen()));
+                },
                 child: Container(
                   margin: EdgeInsets.only(right: 15.w),
                   child: Image.asset(
