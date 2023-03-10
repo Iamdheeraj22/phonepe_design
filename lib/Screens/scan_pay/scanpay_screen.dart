@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:phonepe_design/Screens/scan_pay/widgets/paid_person_widget.dart';
 import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
 import 'package:phonepe_design/common/commmon_provider.dart';
@@ -44,7 +45,7 @@ class _ScanPayScreenState extends State<ScanPayScreen> {
                 Navigator.pop(context);
               },
             ),
-            title: const Text('Notifications'),
+            title: const Text('Scan & Pay'),
             actions: [
               Container(
                 margin: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.h),
@@ -85,6 +86,39 @@ class _ScanPayScreenState extends State<ScanPayScreen> {
                 width: MediaQuery.of(context).size.width,
                 decoration:
                     const BoxDecoration(color: Color.fromARGB(132, 0, 0, 0)),
+                child: Center(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 15.h),
+                      child: Text(
+                        'Suggested',
+                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    SizedBox(
+                      height: 80.h,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: tempNames.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: index == 0
+                                  ? EdgeInsets.only(left: 15.w, right: 10.w)
+                                  : EdgeInsets.only(right: 10.w),
+                              child: PaidPersonWidget(
+                                fullName: tempNames[index],
+                              ),
+                            );
+                          }),
+                    ),
+                  ],
+                )),
               ),
               const Spacer(),
               Row(
