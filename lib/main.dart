@@ -5,6 +5,7 @@ import 'package:phonepe_design/common/commmon_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   ErrorWidget.builder = (FlutterErrorDetails details) {
     return Center(
       child: Text(
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider <CommonProviderModel>(
+        ChangeNotifierProvider<CommonProviderModel>(
             create: ((_) => CommonProviderModel())),
       ],
       child: MaterialApp(

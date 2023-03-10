@@ -16,4 +16,4 @@ class CommonProviderModel extends ChangeNotifier {
     cList = await availableCameras();
     notifyListeners();
   }
-} 
+}

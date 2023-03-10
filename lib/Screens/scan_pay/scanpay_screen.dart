@@ -23,59 +23,98 @@ class _ScanPayScreenState extends State<ScanPayScreen> {
 
   @override
   void initState() {
-    Provider.of<CommonProviderModel>(context).cameraDescription();
     super.initState();
+    Provider.of<CommonProviderModel>(context, listen: false)
+        .cameraDescription();
   }
 
   @override
   Widget build(BuildContext context) {
     providerModel = Provider.of<CommonProviderModel>(context);
     _cameraController =
-        CameraController(providerModel.cList[0], ResolutionPreset.high);
+        CameraController(providerModel.cList[0], ResolutionPreset.ultraHigh);
     cameraValue = _cameraController.initialize();
-    return Scaffold(
-      appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: primaryBlueColor,
-          leading: BackButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: const Text('Notifications'),
-          actions: [
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.h),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50.r),
-                  border: Border.all(color: Colors.white)),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(100.h),
-                onTap: () {},
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 7.h),
-                  child: Icon(
-                    Icons.question_mark_outlined,
-                    size: 10.h,
+    return Consumer<CommonProviderModel>(builder: (context, v, c) {
+      return Scaffold(
+        appBar: AppBar(
+            elevation: 0.0,
+            backgroundColor: primaryBlueColor,
+            leading: BackButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            title: const Text('Notifications'),
+            actions: [
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.h),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.r),
+                    border: Border.all(color: Colors.white)),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(100.h),
+                  onTap: () {},
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 7.h),
+                    child: Icon(
+                      Icons.question_mark_outlined,
+                      size: 10.h,
+                    ),
                   ),
                 ),
+              )
+            ]),
+        body: Stack(children: [
+          FutureBuilder(
+              future: cameraValue,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: CameraPreview(_cameraController));
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
+          Column(
+            children: [
+              Container(
+                height: 165.h,
+                width: MediaQuery.of(context).size.width,
+                decoration:
+                    const BoxDecoration(color: Color.fromARGB(132, 0, 0, 0)),
               ),
-            )
-          ]),
-      body: Stack(children: [
-        FutureBuilder(
-            future: cameraValue,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return Container(
-                    width: 300.w, child: CameraPreview(_cameraController));
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            }),
-      ]),
-    );
+              const Spacer(),
+              Row(
+                children: [
+                  Container(
+                    height: 230.h,
+                    width: 80.h,
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(132, 0, 0, 0)),
+                  ),
+                  const Spacer(),
+                  Container(
+                    height: 230.h,
+                    width: 80.h,
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(132, 0, 0, 0)),
+                  )
+                ],
+              ),
+              const Spacer(),
+              Container(
+                height: 165.h,
+                width: MediaQuery.of(context).size.width,
+                decoration:
+                    const BoxDecoration(color: Color.fromARGB(132, 0, 0, 0)),
+              )
+            ],
+          ),
+        ]),
+      );
+    });
   }
 }
