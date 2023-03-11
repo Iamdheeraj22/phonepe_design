@@ -97,7 +97,11 @@ class _PayScreenState extends State<PayScreen> {
                                     color: Colors.black, fontSize: 12.sp))
                           ]))
                         ],
-                      )
+                      ),
+                      Spacer(),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.keyboard_arrow_right))
                     ],
                   ),
                   SizedBox(
@@ -139,7 +143,7 @@ class _PayScreenState extends State<PayScreen> {
                   TextFormField(
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.text,
-                    controller: _amountController,
+                    controller: _messageController,
                     onChanged: (v) {
                       setState(() {});
                     },
