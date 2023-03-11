@@ -1,10 +1,12 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:phonepe_design/Screens/pay/pay_screen.dart';
 import 'package:phonepe_design/Screens/scan_pay/widgets/paid_person_widget.dart';
 import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
 import 'package:phonepe_design/common/commmon_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:vibration/vibration.dart';
 
 class ScanPayScreen extends StatefulWidget {
   const ScanPayScreen({Key? key}) : super(key: key);
@@ -112,8 +114,14 @@ class _ScanPayScreenState extends State<ScanPayScreen> {
                                   ? EdgeInsets.only(left: 15.w, right: 10.w)
                                   : EdgeInsets.only(right: 10.w),
                               child: PaidPersonWidget(
-                                fullName: tempNames[index],
-                              ),
+                                  fullName: tempNames[index],
+                                  onTap: () {
+                                    Vibration.vibrate(duration: 200);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (builder) => PayScreen()));
+                                  }),
                             );
                           }),
                     ),
