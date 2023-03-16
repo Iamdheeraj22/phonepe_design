@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phonepe_design/Screens/merchant_details/merchant_details_screen.dart';
 import 'package:phonepe_design/Utils/Colors.dart';
 import 'package:phonepe_design/Utils/size_config.dart';
 
@@ -98,10 +99,16 @@ class _PayScreenState extends State<PayScreen> {
                           ]))
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.keyboard_arrow_right))
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (builder) =>
+                                        const MerchantDetailsScreen()));
+                          },
+                          icon: const Icon(Icons.keyboard_arrow_right))
                     ],
                   ),
                   SizedBox(
@@ -179,7 +186,7 @@ class _PayScreenState extends State<PayScreen> {
                 decoration: BoxDecoration(
                     color: (_amountController.text.isEmpty ||
                             _amountController.text == '0')
-                        ? Color.fromARGB(137, 68, 68, 68)
+                        ? const Color.fromARGB(137, 68, 68, 68)
                         : primaryBlueColor),
                 child: Center(
                   child: Text(
